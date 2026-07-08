@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npx astro *)",
+      "Bash(curl -s \"http://localhost:4321/blog/optimizing-cold-starts/\")",
+      "Bash(curl -s \"http://localhost:4321/\")"
+    ]
+  }
+}

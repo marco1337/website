@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const experience = [
+	{
+		role: 'Senior Software Engineer',
+		company: 'Northbridge Systems',
+		period: '2022 — Present',
+		description:
+			'Lead a team of four engineers building distributed data pipelines processing 2B+ events per day. Cut end-to-end latency by 40% through a redesign of the ingestion layer.',
+	},
+	{
+		role: 'Software Engineer',
+		company: 'Alderwood Robotics',
+		period: '2019 — 2022',
+		description:
+			'Built embedded control software for autonomous warehouse robots. Owned the path-planning module and reduced navigation errors by 65% across the fleet.',
+	},
+	{
+		role: 'Junior Developer',
+		company: 'Fenwick Digital',
+		period: '2017 — 2019',
+		description:
+			'Developed and maintained internal tooling for a 30-person engineering org, including a deployment dashboard still used company-wide today.',
+	},
+];
+
+const education = {
+	degree: 'B.S. in Electrical Engineering',
+	school: 'University of Meridian',
+	period: '2013 — 2017',
+};
+---
+
+<Layout title="Home">
+	<section class="intro">
+		<h1>John Smith</h1>
+		<p class="muted">
+			<a href="mailto:john.smith@example.com">john.smith@example.com</a>
+		</p>
+		<p>
+			Software engineer focused on distributed systems and developer tooling.
+			I like building things that are fast, simple, and hold up under load.
+		</p>
+	</section>
+
+	<section>
+		<h2>Experience</h2>
+		<ul class="timeline">
+			{
+				experience.map((job) => (
+					<li>
+						<div class="timeline-header">
+							<h3>{job.role} · {job.company}</h3>
+							<span class="muted">{job.period}</span>
+						</div>
+						<p class="muted">{job.description}</p>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<section>
+		<h2>Education</h2>
+		<div class="timeline-header">
+			<h3>{education.degree}</h3>
+			<span class="muted">{education.period}</span>
+		</div>
+		<p class="muted">{education.school}</p>
+	</section>
+</Layout>
+
+<style>
+	.intro {
+		margin-bottom: 3rem;
+	}
+
+	.intro h1 {
+		font-size: clamp(1.75rem, 1.5rem + 1.5vw, 2.5rem);
+		margin-bottom: 0.25rem;
+	}
+
+	section {
+		margin-bottom: 2.5rem;
+	}
+
+	section h2 {
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+	}
+
+	.timeline {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.timeline-header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.5rem;
+	}
+
+	.timeline-header h3 {
+		font-size: 1rem;
+		margin: 0;
+	}
+
+	.timeline-header span {
+		font-size: 0.875rem;
+		white-space: nowrap;
+	}
+</style>

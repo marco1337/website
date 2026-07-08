@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+	{
+		name: 'Streamline',
+		description:
+			'A lightweight event-streaming library for Node.js with backpressure support and zero runtime dependencies.',
+		stack: ['TypeScript', 'Node.js'],
+		href: 'https://github.com/example/streamline',
+	},
+	{
+		name: 'Fleetview',
+		description:
+			'Real-time monitoring dashboard for autonomous robot fleets, built on top of a WebSocket telemetry feed.',
+		stack: ['React', 'WebSockets', 'Go'],
+		href: 'https://github.com/example/fleetview',
+	},
+	{
+		name: 'Deploydeck',
+		description:
+			'An internal deployment dashboard that shows rollout status, health checks, and rollback controls in one view.',
+		stack: ['Astro', 'Python'],
+		href: 'https://github.com/example/deploydeck',
+	},
+	{
+		name: 'Pathfinder',
+		description:
+			'A path-planning simulator for testing warehouse robot navigation against synthetic sensor noise.',
+		stack: ['C++', 'Python'],
+		href: 'https://github.com/example/pathfinder',
+	},
+];
+---
+
+<Layout title="Projects" description="A selection of projects John Smith has built.">
+	<h1>Projects</h1>
+	<ul class="projects">
+		{
+			projects.map((project) => (
+				<li>
+					<a class="project-link" href={project.href} target="_blank" rel="noreferrer noopener">
+						<h2>{project.name}</h2>
+					</a>
+					<p class="muted">{project.description}</p>
+					<ul class="stack">
+						{project.stack.map((tech) => (
+							<li>{tech}</li>
+						))}
+					</ul>
+				</li>
+			))
+		}
+	</ul>
+</Layout>
+
+<style>
+	h1 {
+		margin-bottom: 2rem;
+	}
+
+	.projects {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.project-link {
+		text-decoration: none;
+	}
+
+	.project-link h2 {
+		font-size: 1.15rem;
+		margin: 0 0 0.5rem;
+		color: var(--text);
+	}
+
+	.stack {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin: 0.75rem 0 0;
+		padding: 0;
+	}
+
+	.stack li {
+		font-size: 0.8rem;
+		color: var(--text-muted);
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		padding: 0.2rem 0.7rem;
+	}
+</style>

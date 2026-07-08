@@ -1,0 +1,43 @@
+---
+import Nav from '../components/Nav.astro';
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = 'Personal website of John Smith.' } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} · John Smith</title>
+	</head>
+	<body>
+		<Nav />
+		<main class="container">
+			<slot />
+		</main>
+		<footer class="container">
+			<p class="muted">&copy; {new Date().getFullYear()} John Smith</p>
+		</footer>
+	</body>
+</html>
+
+<style>
+	main {
+		min-height: 70vh;
+		padding-block: 2.5rem;
+	}
+
+	footer {
+		padding-block: 2rem;
+		border-top: 1px solid var(--border);
+	}
+</style>
