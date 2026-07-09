@@ -7,7 +7,7 @@ interface Props {
 	description?: string;
 }
 
-const { title, description = 'Personal website of John Smith.' } = Astro.props;
+const { title, description = 'Personal website of Marco Portocarrero.' } = Astro.props;
 ---
 
 <html lang="en">
@@ -17,7 +17,7 @@ const { title, description = 'Personal website of John Smith.' } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title} · John Smith</title>
+		<title>{title} · Marco Portocarrero</title>
 	</head>
 	<body>
 		<Nav />
